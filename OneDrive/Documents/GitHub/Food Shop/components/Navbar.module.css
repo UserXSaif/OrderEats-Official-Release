@@ -1,0 +1,244 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.scrolled {
+    height: 70px;
+    background: rgba(27, 27, 27, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 1001;
+}
+
+.logoIcon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+.logoText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logoVersion {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 900;
+    color: var(--primary);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.navLinks {
+    display: flex;
+    gap: 2.5rem;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.navLink {
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.navLink:hover {
+    color: var(--text-primary);
+}
+
+.active {
+    color: var(--primary) !important;
+}
+
+.underline {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+    box-shadow: 0 0 8px var(--primary-glow);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.iconBtn {
+    color: var(--text-secondary);
+    padding: 0.6rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconBtn:hover {
+    background: var(--glass-bg);
+    color: var(--primary);
+}
+
+.loginBtn {
+    background: var(--primary);
+    color: white;
+    padding: 0.7rem 1.4rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.loginBtn:hover {
+    transform: translateY(-2px);
+    background: #fa5212;
+    box-shadow: 0 0 25px rgba(250, 82, 18, 0.4);
+}
+
+.cartIconBtn {
+    position: relative;
+    padding: 0.6rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartIconBtn:hover {
+    color: var(--primary);
+}
+
+.cartBadge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: var(--primary);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 800;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--primary-glow);
+    border: 2px solid var(--bg-primary);
+}
+
+.userSection {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 0.3rem 0.5rem;
+    border-radius: 50px;
+}
+
+.profileLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.profileLink:hover {
+    background: var(--glass-bg);
+}
+
+.logoutBtn {
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutBtn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.menuToggle {
+    display: none;
+    color: var(--text-primary);
+}
+
+.mobileNav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 999;
+}
+
+.mobileNavLink {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.mobileLoginBtn {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+}
+
+@media (max-width: 992px) {
+    .navLinks {
+        display: none;
+    }
+
+    .menuToggle {
+        display: flex;
+    }
+}

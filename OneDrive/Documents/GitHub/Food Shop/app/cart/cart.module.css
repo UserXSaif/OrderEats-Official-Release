@@ -1,0 +1,148 @@
+.cartPage {
+    padding: 120px 0;
+    min-height: 100vh;
+}
+
+.emptyCart {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.browseBtn {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 3rem;
+}
+
+.itemsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+.itemImage {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.itemInfo h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--glass-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-left: auto;
+}
+
+.quantityControls button {
+    color: var(--text-secondary);
+}
+
+.quantityControls button:hover {
+    color: var(--primary);
+}
+
+.itemTotal {
+    font-weight: 800;
+    font-size: 1.1rem;
+    width: 100px;
+    text-align: right;
+}
+
+.removeBtn {
+    color: var(--text-muted);
+}
+
+.removeBtn:hover {
+    color: #ef4444;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.summaryRow.total {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.checkoutBtn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+
+.checkoutBtn:hover {
+    box-shadow: 0 0 20px var(--primary-glow);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .cartItem {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .quantityControls {
+        margin: 0 auto;
+    }
+
+    .itemTotal {
+        width: auto;
+    }
+}

@@ -1,0 +1,184 @@
+.checkoutPage {
+    padding: 120px 0;
+    min-height: 100vh;
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.step {
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.step.active {
+    color: var(--primary);
+}
+
+.divider {
+    height: 1px;
+    width: 50px;
+    background: var(--glass-border);
+}
+
+.card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.card h2 {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form input,
+.voucherInput input {
+    background: var(--bg-accent);
+    border: 1px solid var(--glass-border);
+    padding: 1.2rem;
+    border-radius: 12px;
+    color: white;
+    font-family: inherit;
+}
+
+.form input:focus,
+.voucherInput input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.primaryBtn {
+    background: var(--primary);
+    color: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.primaryBtn:hover {
+    box-shadow: 0 0 20px var(--primary-glow);
+    transform: translateY(-2px);
+}
+
+.paymentGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.paymentBtn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.paymentBtn.selected {
+    border-color: var(--primary);
+    background: var(--primary-glow);
+    color: var(--primary);
+}
+
+.voucherSection {
+    margin-bottom: 2.5rem;
+}
+
+.voucherInput {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.voucherInput input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0.7rem;
+}
+
+.voucherInput button {
+    background: var(--primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.orderSummary {
+    padding: 1.5rem;
+    background: var(--bg-accent);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.summaryRow.total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.backBtn {
+    width: 100%;
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+@media (max-width: 640px) {
+    .paymentGrid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,182 @@
+.trackPage {
+    padding: 120px 0;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.header p {
+    color: var(--text-secondary);
+    margin-top: 1rem;
+}
+
+.searchBox {
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 0.2rem 0.2rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.searchBox:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.searchIcon {
+    color: var(--primary);
+}
+
+.searchBox input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 1.2rem;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.searchBox input:focus {
+    outline: none;
+}
+
+.searchBox button {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.searchBox button:hover {
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.statusGrid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+}
+
+.mainStatus {
+    padding: 3rem;
+}
+
+.statusHeader {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.statusHeader h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.statusHeader span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timelineStep {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+}
+
+.timelineStep::after {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 30px;
+    bottom: -30px;
+    width: 2px;
+    background: var(--glass-border);
+}
+
+.timelineStep:last-child::after {
+    display: none;
+}
+
+.dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--bg-accent);
+    border: 2px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.timelineStep.completed .dot {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.timelineStep.completed .stepInfo h3 {
+    color: var(--primary);
+}
+
+.stepInfo h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-secondary);
+}
+
+.stepInfo span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.metaInfo {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.infoItem {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.infoItem span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.infoItem strong {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+@media (max-width: 992px) {
+    .statusGrid {
+        grid-template-columns: 1fr;
+    }
+}

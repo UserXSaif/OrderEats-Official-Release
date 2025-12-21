@@ -1,0 +1,148 @@
+.testimonials {
+    padding: 100px 0;
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.carouselWrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cardContainer {
+    flex: 1;
+    position: relative;
+    min-height: 400px;
+}
+
+.testimonialCard {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.quoteIcon {
+    color: var(--primary);
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    opacity: 0.2;
+}
+
+.text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.authorGroup {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-accent);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.info h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.rating {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.navBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 3rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--glass-border);
+    transition: var(--transition);
+}
+
+.activeDot {
+    width: 30px;
+    border-radius: 10px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+@media (max-width: 768px) {
+    .testimonialCard {
+        padding: 3rem 2rem;
+    }
+
+    .text {
+        font-size: 1.1rem;
+    }
+
+    .navBtn {
+        display: none;
+    }
+}

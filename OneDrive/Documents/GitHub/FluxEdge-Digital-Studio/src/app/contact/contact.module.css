@@ -1,0 +1,82 @@
+.contactPage {
+    padding-top: 20vh;
+    padding-bottom: 10vh;
+    min-height: 100vh;
+}
+
+.heading {
+    font-size: clamp(3rem, 6vw, 6rem);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.form {
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.inputGroup {
+    position: relative;
+    overflow: hidden;
+}
+
+.input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s;
+    border-radius: 0;
+}
+
+.label {
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #999;
+    font-size: 1.5rem;
+}
+
+.input:focus,
+.input:not(:placeholder-shown) {
+    border-bottom-color: #000;
+}
+
+.input:focus~.label,
+.input:not(:placeholder-shown)~.label {
+    top: -1.2rem;
+    font-size: 0.85rem;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.submitBtn {
+    margin-top: 2rem;
+    padding: 1.5rem 3rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    align-self: flex-start;
+    transition: transform 0.3s;
+}
+
+.submitBtn:hover {
+    transform: scale(1.05);
+}

@@ -1,0 +1,94 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem var(--padding-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: transparent;
+    color: #fff;
+}
+
+.scrolled {
+    background: rgba(3, 3, 5, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem var(--padding-x);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.logo span {
+    color: var(--color-primary);
+}
+
+.navItems {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.link:hover {
+    color: #fff;
+}
+
+.ctaButton {
+    padding: 0.75rem 1.5rem;
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 100px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s;
+}
+
+.ctaButton:hover {
+    transform: scale(1.05);
+    background: var(--color-primary);
+}
+
+/* Mobile Menu Button - Hidden on Desktop */
+.menuBtn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10;
+}
+
+.bar {
+    width: 24px;
+    height: 2px;
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .navItems {
+        display: none;
+        /* Simplification for now, would be a full mobile menu */
+    }
+
+    .menuBtn {
+        display: flex;
+    }
+}

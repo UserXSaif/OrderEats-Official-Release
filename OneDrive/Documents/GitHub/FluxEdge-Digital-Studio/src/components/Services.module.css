@@ -1,0 +1,165 @@
+.services {
+    padding-top: 15vh;
+    padding-bottom: 20vh;
+    position: relative;
+    z-index: 5;
+    background: radial-gradient(circle at center, rgba(20, 10, 5, 0.3), transparent 70%);
+}
+
+.heading {
+    margin-bottom: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 102, 0, 0.2);
+    padding-bottom: 2rem;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 3rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 320px;
+    backdrop-filter: blur(10px);
+    perspective: 1000px;
+}
+
+.cardIndex {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-family: var(--font-orbitron);
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+.cardIcon {
+    font-size: 2.5rem;
+    margin-bottom: auto;
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 10px rgba(255, 85, 0, 0.4));
+    transition: transform 0.5s ease;
+}
+
+.cardContent {
+    position: relative;
+    z-index: 2;
+    transform: translateY(10px);
+    transition: transform 0.5s ease;
+}
+
+.cardTitle {
+    font-family: var(--font-orbitron);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.cardDesc {
+    color: var(--color-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: color 0.3s;
+}
+
+.cardOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 100%, rgba(255, 85, 0, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card:hover .cardOverlay {
+    opacity: 1;
+}
+
+/* Tech Corner Accent */
+.cardCorner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid var(--color-primary);
+    border-right: 2px solid var(--color-primary);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+/* Hover Effects */
+.card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 85, 0, 0.5);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 40px -10px rgba(255, 85, 0, 0.15);
+}
+
+.card:hover .cardIndex {
+    color: rgba(255, 85, 0, 0.1);
+    transform: scale(1.2) translateX(-10px);
+}
+
+.card:hover .cardIcon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card:hover .cardContent {
+    transform: translateY(0);
+}
+
+.card:hover .cardCorner {
+    opacity: 1;
+    width: 60px;
+    height: 60px;
+}
+
+.card:hover .cardTitle {
+    color: var(--color-primary);
+}
+
+.card:hover .cardDesc {
+    color: #ddd;
+}
+
+/* Scanning Line Animation */
+.card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--color-primary);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    box-shadow: 0 0 20px var(--color-primary);
+}
+
+.card:hover::after {
+    transform: scaleX(1);
+}

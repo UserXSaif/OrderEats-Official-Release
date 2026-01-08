@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, ShoppingBag, Truck, CheckCircle, Smartphone, Zap, ShieldCheck, Globe } from 'lucide-react';
+import { Search, ShoppingBag, Truck, CheckCircle, Zap, ShieldCheck, Globe } from 'lucide-react';
 import Image from 'next/image';
 import styles from './how-it-works.module.css';
 

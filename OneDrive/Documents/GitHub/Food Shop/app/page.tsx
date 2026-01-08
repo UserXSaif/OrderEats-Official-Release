@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { HeroPrimary, HeroSecondary } from "@/components/sections/Hero";
 import DailyMeals from "@/components/sections/DailyMeals";
 import Highlight from "@/components/sections/Highlight";

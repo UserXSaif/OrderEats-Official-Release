@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { Meal } from './services/meal-service';
 
 interface CartItem {
     id: number;
@@ -12,7 +13,7 @@ interface CartItem {
 
 interface CartContextType {
     cart: CartItem[];
-    addToCart: (item: any) => void;
+    addToCart: (item: Meal | CartItem) => void;
     removeFromCart: (id: number) => void;
     updateQuantity: (id: number, quantity: number) => void;
     clearCart: () => void;
@@ -22,20 +23,21 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [cart, setCart] = useState<CartItem[]>([]);
-
-    useEffect(() => {
-        const savedCart = localStorage.getItem('order-eats-cart');
-        if (savedCart) {
-            setCart(JSON.parse(savedCart));
+    const [cart, setCart] = useState<CartItem[]>(() => {
+        if (typeof window !== 'undefined') {
+            const savedCart = localStorage.getItem('order-eats-cart');
+            return savedCart ? JSON.parse(savedCart) : [];
         }
-    }, []);
+        return [];
+    });
 
     useEffect(() => {
-        localStorage.setItem('order-eats-cart', JSON.stringify(cart));
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('order-eats-cart', JSON.stringify(cart));
+        }
     }, [cart]);
 
-    const addToCart = (item: any) => {
+    const addToCart = (item: Meal | CartItem) => {
         setCart(prev => {
             const existing = prev.find(i => i.id === item.id);
             if (existing) {

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MapPin, CreditCard, Banknote, Smartphone, Gift, ArrowRight, CheckCircle2 } from 'lucide-react';
@@ -15,6 +15,7 @@ const CheckoutPage = () => {
     const [paymentMethod, setPaymentMethod] = useState('card');
     const [voucher, setVoucher] = useState('');
     const [discount, setDiscount] = useState(0);
+    const [orderId] = useState(() => Math.floor(Math.random() * 999999));
 
     const handlePlaceOrder = () => {
         setStep(3);
@@ -27,14 +28,19 @@ const CheckoutPage = () => {
     const applyVoucher = () => {
         if (voucher.toUpperCase() === 'OREATS20') {
             setDiscount(total * 0.2);
-            alert('Voucher applied: 20% Discount!');
+            console.log('Voucher applied: 20% Discount!');
         } else {
-            alert('Invalid voucher code');
+            console.log('Invalid voucher code');
         }
     };
 
+    useEffect(() => {
+        if (cart.length === 0 && step !== 3) {
+            router.push('/cart');
+        }
+    }, [cart.length, step, router]);
+
     if (cart.length === 0 && step !== 3) {
-        router.push('/cart');
         return null;
     }
 
@@ -151,7 +157,7 @@ const CheckoutPage = () => {
                             <h1 className="text-gradient">Order Synchronized!</h1>
                             <p style={{ color: 'var(--text-secondary)', marginTop: '1rem' }}>
                                 Your order has been registered in the Protocol.
-                                <br />Tracking ID: #OE-{Math.floor(Math.random() * 999999)}
+                                <br />Tracking ID: #OE-{orderId}
                             </p>
                             <p style={{ marginTop: '2rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                                 Redirecting to Sector Grid...

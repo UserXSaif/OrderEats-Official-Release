@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ShoppingCart, Check, Star, Filter } from 'lucide-react';
+import { Search, ShoppingCart, Check, Star } from 'lucide-react';
 import { MealService, Meal } from '@/lib/services/meal-service';
 import { useCart } from '@/lib/cart-context';
 import Image from 'next/image';

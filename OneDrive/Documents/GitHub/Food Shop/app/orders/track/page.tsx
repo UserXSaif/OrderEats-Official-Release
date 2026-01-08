@@ -2,12 +2,20 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Package, Truck, CheckCircle2, MapPin, Clock } from 'lucide-react';
+import { Search, Package, CheckCircle2, MapPin, Clock } from 'lucide-react';
 import styles from './track.module.css';
+
+interface TrackStatus {
+    id: string;
+    currentStatus: string;
+    steps: { title: string; time: string; completed: boolean }[];
+    location: string;
+    eta: string;
+}
 
 const TrackOrderPage = () => {
     const [orderId, setOrderId] = useState('');
-    const [status, setStatus] = useState<any>(null);
+    const [status, setStatus] = useState<TrackStatus | null>(null);
 
     const handleTrack = (e: React.FormEvent) => {
         e.preventDefault();
@@ -63,7 +71,7 @@ const TrackOrderPage = () => {
                                 </div>
 
                                 <div className={styles.timeline}>
-                                    {status.steps.map((step: any, i: number) => (
+                                    {status.steps.map((step, i) => (
                                         <div key={i} className={`${styles.timelineStep} ${step.completed ? styles.completed : ''}`}>
                                             <div className={styles.dot}>
                                                 {step.completed && <CheckCircle2 size={16} />}

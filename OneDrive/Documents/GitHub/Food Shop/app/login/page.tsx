@@ -24,8 +24,8 @@ const LoginPage = () => {
             await AuthService.login(email, password);
             router.push('/');
             router.refresh();
-        } catch (err: any) {
-            setError(err.message || 'Authentication failed');
+        } catch (err: unknown) {
+            setError(err instanceof Error ? err.message : 'Authentication failed');
         } finally {
             setLoading(false);
         }
@@ -100,7 +100,7 @@ const LoginPage = () => {
                 </div>
 
                 <p className={styles.footer}>
-                    Don't have an account? <Link href="/signup">Sign Up</Link>
+                    Don&apos;t have an account? <Link href="/signup">Sign Up</Link>
                 </p>
             </motion.div>
         </div>

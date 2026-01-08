@@ -5,7 +5,7 @@ export async function GET() {
     try {
         const meals = await MealService.getDailyMeals();
         return NextResponse.json(meals);
-    } catch (error) {
+    } catch {
         return NextResponse.json({ error: 'Failed to fetch meals' }, { status: 500 });
     }
 }

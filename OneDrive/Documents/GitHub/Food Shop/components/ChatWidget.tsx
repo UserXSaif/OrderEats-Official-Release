@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, User, Headset } from 'lucide-react';
+import { MessageSquare, X, Send, Headset } from 'lucide-react';
 import styles from './ChatWidget.module.css';
 
 const ChatWidget = () => {

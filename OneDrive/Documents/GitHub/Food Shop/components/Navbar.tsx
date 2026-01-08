@@ -2,27 +2,35 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, User, LogOut, ShoppingBag, Search, ShoppingCart } from 'lucide-react';
-import { AuthService } from '@/lib/auth-service';
+import { Menu, X, User as UserIcon, LogOut, ShoppingBag, Search, ShoppingCart } from 'lucide-react';
+import { AuthService, User } from '@/lib/auth-service';
 import { useCart } from '@/lib/cart-context';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    if (typeof window !== 'undefined') {
+      return AuthService.getCurrentUser();
+    }
+    return null;
+  });
   const { cart } = useCart();
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
 
-    // Check for user on mount and after pathname change (simple sync)
+    // Update user state if it changed (e.g. after login/logout)
     const currentUser = AuthService.getCurrentUser();
-    setUser(currentUser);
+    setTimeout(() => {
+      setUser(currentUser);
+    }, 0);
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
@@ -30,7 +38,7 @@ const Navbar = () => {
   const handleLogout = () => {
     AuthService.logout();
     setUser(null);
-    window.location.href = '/';
+    router.push('/');
   };
 
   const navLinks = [
@@ -100,7 +108,7 @@ const Navbar = () => {
           {user ? (
             <div className={styles.userSection}>
               <Link href="/dashboard" className={styles.profileLink}>
-                <User size={18} />
+                <UserIcon size={18} />
                 <span>{user.name.split(' ')[0]}</span>
               </Link>
               <button onClick={handleLogout} className={styles.logoutBtn} aria-label="Logout">
@@ -109,7 +117,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link href="/login" className={styles.loginBtn}>
-              <User size={18} />
+              <UserIcon size={18} />
               <span>Login</span>
             </Link>
           )}

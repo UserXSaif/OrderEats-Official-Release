@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Mail, Lock, User, ArrowRight, Github } from 'lucide-react';
+import { Mail, Lock, User as UserIcon, ArrowRight, Github } from 'lucide-react';
 import { AuthService } from '@/lib/auth-service';
 import styles from '@/app/Auth.module.css';
 
@@ -25,8 +25,8 @@ const SignUpPage = () => {
             await AuthService.signup(name, email, password);
             router.push('/');
             router.refresh();
-        } catch (err: any) {
-            setError(err.message || 'Registration failed');
+        } catch (err: unknown) {
+            setError(err instanceof Error ? err.message : 'Registration failed');
         } finally {
             setLoading(false);
         }
@@ -56,7 +56,7 @@ const SignUpPage = () => {
 
                 <form onSubmit={handleSignUp} className={styles.form}>
                     <div className={styles.inputGroup}>
-                        <User className={styles.icon} size={20} />
+                        <UserIcon className={styles.icon} size={20} />
                         <input
                             type="text"
                             placeholder="Full Name"

@@ -2,21 +2,23 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { User, Package, Settings, LogOut, Clock, Zap } from 'lucide-react';
-import { AuthService } from '@/lib/auth-service';
+import { User as UserIcon, Package, Settings, LogOut, Clock, Zap } from 'lucide-react';
+import { AuthService, User } from '@/lib/auth-service';
 import { useRouter } from 'next/navigation';
 import styles from './dashboard.module.css';
 
 const DashboardPage = () => {
-    const [user, setUser] = useState<any>(null);
+    const [user] = useState<User | null>(() => {
+        if (typeof window !== 'undefined') {
+            return AuthService.getCurrentUser();
+        }
+        return null;
+    });
     const router = useRouter();
 
     useEffect(() => {
-        const currentUser = AuthService.getCurrentUser();
-        if (!currentUser) {
+        if (typeof window !== 'undefined' && !AuthService.getCurrentUser()) {
             router.push('/login');
-        } else {
-            setUser(currentUser);
         }
     }, [router]);
 
@@ -43,7 +45,7 @@ const DashboardPage = () => {
                             Orders
                         </button>
                         <button className={styles.navBtn}>
-                            <User size={20} />
+                            <UserIcon size={20} />
                             Profile
                         </button>
                         <button className={styles.navBtn}>
